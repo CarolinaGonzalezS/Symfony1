@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Estudiante:lista{% endblock %}
+
+{% block body %}
+    {% if  carrera == 'todas' %}
+        {% for carrera, estudiantes in listaSelec %}
+            <h1>La carrera {{ carrera }} tiene los siguientes estudiantes:</h1>
+            <br>
+            {% for estudiante in estudiantes %}
+                <ul>
+                {{ estudiante }}
+                </ul>
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+    <h1>La carrera {{ carrera }} tiene los siguientes estudiantes: </h1>
+    <br>
+        {% for estudiante in listaSelec %}
+            <li>
+            <ul>{{ estudiante }}</ul>
+            </li>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
